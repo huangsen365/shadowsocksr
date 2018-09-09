@@ -1,4 +1,5 @@
 docker build -t huangsen365/shadowsocksr .
+
 docker run -d -p 8389:51348 --restart=always -e PASSWORD=YOURPASSWORD huangsen365/shadowsocksr
 
 ShadowsocksR

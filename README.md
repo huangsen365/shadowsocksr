@@ -1,10 +1,14 @@
+# build the image
 docker build -t huangsen365/shadowsocksr .
 
+# SSR service on Linux - run the SSR service, change YOURPASSWORD
 docker run -d -p 8389:51348 --restart=always -e PASSWORD=YOURPASSWORD huangsen365/shadowsocksr
 
+# SSR service on Windows - run this in Cygwin, change YOURPASSWORD
 python server.py -p 8389 -k YOURPASSWORD -m aes-128-ctr -O auth_aes128_md5 -o tls1.2_ticket_auth_compatible -G 32
 
-python local.py -b 127.0.0.1 -l 7071 -s SERVER_IP -p 8389 -k YOURPASSWORD -m aes-128-ctr -o tls1.2_ticket_auth_compatible -O auth_aes128_md5 -G 32
+# SSR client on Windows - run this in Cygwin, change YOURPASSWORD or try this https://github.com/huangsen365/shadowsocksr-client
+python local.py -b 127.0.0.1 -l 7072 -s SERVER_IP -p 8389 -k YOURPASSWORD -m aes-128-ctr -o tls1.2_ticket_auth_compatible -O auth_aes128_md5 -G 32
 
 ShadowsocksR
 ===========

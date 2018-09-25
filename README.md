@@ -2,7 +2,7 @@
 docker build -t huangsen365/shadowsocksr .
 
 # SSR service on Linux - run the SSR service, change YOURPASSWORD
-docker run -d -p 8389:51348 --restart=always -e PASSWORD=YOURPASSWORD huangsen365/shadowsocksr
+docker run -d -p 8389:51348 --restart=always --dns=8.8.4.4 --dns=8.8.8.8 -e PASSWORD=YOURPASSWORD huangsen365/shadowsocksr
 
 # SSR service on Windows - run this in Cygwin, change YOURPASSWORD
 python server.py -p 8389 -k YOURPASSWORD -m aes-128-ctr -O auth_aes128_md5 -o tls1.2_ticket_auth_compatible -G 32
